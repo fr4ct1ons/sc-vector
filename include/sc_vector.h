@@ -1,25 +1,46 @@
 #ifndef VECTOR_H
 #define VECTOR_H
 
-#include<cstdlib>   
+#include<cstdlib>
+#include<stdexcept>   
 
 namespace sc
 {
     template<typename T, size_t SIZE>
     class Vector
     {
-        public:
+        private:
             T data[SIZE];
             int count = SIZE;
         public:
-            size_t GetSize()
+            size_t GetSize() { return count; }
+            T & operator[](size_t pos){ return data[pos]; }
+            T & at (size_t pos) 
             {
-                return count;
+                if(pos < SIZE - 1)
+                    return data[pos];
+                else 
+                {
+                    throw std::out_of_range("Value not inside vector range");
+                }
             }
+
     };
 }
 
 #endif
+
+
+
+
+
+
+
+
+
+
+
+
 /*
 template <typename T>
 class vector {
