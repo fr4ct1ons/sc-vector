@@ -5,16 +5,17 @@
 
 namespace sc
 {
-    template<typename T, int size>
+    template<typename T, size_t SIZE>
     class Vector
     {
         public:
-            T data[size];
-            int count;
-        
+            T data[SIZE];
+            int count = SIZE;
         public:
-            T GetSize();
-
+            size_t GetSize()
+            {
+                return count;
+            }
     };
 }
 

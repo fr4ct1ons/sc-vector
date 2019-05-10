@@ -7,5 +7,5 @@ namespace sc
     Vector<T, size>::Vector(){
 
     }*/
-    //Vector::GetSize();
+    
 }
