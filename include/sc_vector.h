@@ -2,7 +2,8 @@
 #define VECTOR_H
 
 #include<cstdlib>
-#include<stdexcept>   
+#include<stdexcept> 
+#include<cstring>
 
 namespace sc
 {
@@ -10,20 +11,44 @@ namespace sc
     class Vector
     {
         private:
-            T data[SIZE];
+            T *data;
             int count = SIZE;
         public:
-            size_t GetSize() { return count; }
+            Vector()
+            {
+                if(SIZE <= 0)
+                    throw std::invalid_argument("Cannot initialize a vector with 0 or a negative amount of elements");
+                
+                data = new T[SIZE];
+                count = SIZE;
+            }
+
+            size_t size() { return count; }
             T & operator[](size_t pos){ return data[pos]; }
+            bool empty() { return count > 0; }
+            const T & front() const { return data[0]; }
+
+
             T & at (size_t pos) 
             {
-                if(pos < SIZE - 1)
+                if(pos < SIZE)
                     return data[pos];
                 else 
                 {
                     throw std::out_of_range("Value not inside vector range");
                 }
             }
+
+            void push_front( const T & value )
+            {
+                count++;
+                T *buffer = new T[count];
+                std::memcpy(buffer, data, (count - 1) * sizeof(T));
+                delete[] data;
+                data = buffer;
+                data[count - 1] = value;
+            }
+
 
     };
 }
