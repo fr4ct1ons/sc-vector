@@ -48,6 +48,15 @@ namespace sc
                 data = buffer;
                 data[count - 1] = value;
             }
+            void push_back( const T & value )
+            {
+                count++;
+                T *buffer = new T[count];
+                std::memcpy(buffer + 1, data, (count - 1) * sizeof(T));
+                delete[] data;
+                data = buffer;
+                data[0] = value;
+            }
 
 
     };
