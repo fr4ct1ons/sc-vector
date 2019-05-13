@@ -23,10 +23,19 @@ namespace sc
                 count = SIZE;
             }
 
+            Vector(Vector & other)
+            {
+                count = other.size();
+                data = new T[count];
+                for(int i = 0; i < count; i++)
+                {
+                    data[i] = other[i];
+                }
+            }
+
             size_t size() { return count; }
             T & operator[](size_t pos){ return data[pos]; }
             bool empty() { return count > 0; }
-            const T & front() const { return data[0]; }
 
 
             T & at (size_t pos) 
@@ -43,21 +52,49 @@ namespace sc
             {
                 count++;
                 T *buffer = new T[count];
-                std::memcpy(buffer, data, (count - 1) * sizeof(T));
-                delete[] data;
-                data = buffer;
-                data[count - 1] = value;
-            }
-            void push_back( const T & value )
-            {
-                count++;
-                T *buffer = new T[count];
                 std::memcpy(buffer + 1, data, (count - 1) * sizeof(T));
                 delete[] data;
                 data = buffer;
                 data[0] = value;
             }
 
+            void push_back( const T & value )
+            {
+                count++;
+                T *buffer = new T[count];
+                std::memcpy(buffer, data, (count - 1) * sizeof(T));
+                delete[] data;
+                data = buffer;
+                data[count - 1] = value;
+            }
+
+            void pop_front()
+            {
+                count--;
+                T *buffer = new T[count];
+                std::memcpy(buffer, data+1, (count - 1) * sizeof(T));
+                delete[] data;
+                data = buffer;
+            }
+
+            void pop_back()
+            {
+                count--;
+                T *buffer = new T[count];
+                std::memcpy(buffer, data, (count - 1) * sizeof(T));
+                delete[] data;
+                data = buffer;
+            }
+
+            const T & back() const
+            {
+                return data[count - 1];
+            }
+
+            const T & front() const
+            {
+                return data[0];
+            }
 
     };
 }
