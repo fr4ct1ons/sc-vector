@@ -7,27 +7,29 @@
 
 namespace sc
 {
-    template<typename T, size_t SIZE>
+    template<typename T>
     class Vector
     {
         private:
             T *data;
-            int count = SIZE;
+            size_t count;
         public:
-            Vector()
+            //typename myType;
+        public:
+            Vector(size_t size=1)
             {
-                if(SIZE <= 0)
+                if(size <= 0)
                     throw std::invalid_argument("Cannot initialize a vector with 0 or a negative amount of elements");
                 
-                data = new T[SIZE];
-                count = SIZE;
+                data = new T[size];
+                count = size;
             }
 
             Vector(Vector & other)
             {
                 count = other.size();
                 data = new T[count];
-                for(int i = 0; i < count; i++)
+                for(size_t i = 0; i < count; i++)
                 {
                     data[i] = other[i];
                 }
@@ -40,7 +42,7 @@ namespace sc
 
             T & at (size_t pos) 
             {
-                if(pos < SIZE)
+                if(pos < count)
                     return data[pos];
                 else 
                 {

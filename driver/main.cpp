@@ -3,11 +3,11 @@
 
 int main(int argc, char const *argv[])
 {
-    sc::Vector<int, 20> myVec;
+    sc::Vector<int> myVec(20);
 
     try
     {
-        sc::Vector<int, 0> newVec;
+        sc::Vector<int> newVec(0);
     }
     catch(const std::exception& e)
     {
@@ -18,7 +18,7 @@ int main(int argc, char const *argv[])
     myVec[3] = 51;
     std::cout << "Value: " << myVec[3] << std::endl;
 
-    sc::Vector<int, 20> copyVec(myVec);
+    sc::Vector<int> copyVec(myVec);
     std::cout << "copyVec[3] Value: " << copyVec[3] << std::endl;
 
     try
