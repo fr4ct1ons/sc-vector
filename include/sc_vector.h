@@ -58,13 +58,13 @@ namespace sc
                 {
                     capSize = count;
                     T *buffer = new T[capSize];
-                    std::memcpy(buffer + 1, data, (count - 1) * sizeof(T));
+                    std::memcpy(buffer + 1, data, count * sizeof(T));
                     delete[] data;
                     data = buffer;
                 }
                 else
                 {
-                    std::memcpy(data + 1, data, (count - 1) * sizeof(T));
+                    std::memcpy(data + 1, data, count * sizeof(T));
                 }
 
                 data[0] = value;
@@ -77,7 +77,7 @@ namespace sc
                 {
                     capSize = count;
                     T *buffer = new T[capSize];
-                    std::memcpy(buffer, data, (count - 1) * sizeof(T));
+                    std::memcpy(buffer, data, count  * sizeof(T));
                     delete[] data;
                     data = buffer;
                 }
@@ -109,7 +109,19 @@ namespace sc
                 
                 capSize = newCap;
                 T *buffer = new T[capSize];
-                std::memcpy(buffer, data, (count - 1) * sizeof(T));
+                std::memcpy(buffer, data, count  * sizeof(T));
+                delete[] data;
+                data = buffer;
+            }
+
+            void shrink_to_fit()
+            {
+                if(capSize == count)
+                    return;
+
+                capSize = count;
+                T *buffer = new T[capSize];
+                std::memcpy(buffer, data, count * sizeof(T));
                 delete[] data;
                 data = buffer;
             }
@@ -117,7 +129,7 @@ namespace sc
             void pop_front()
             {
                 count--;
-                std::memcpy(data, data+1, (count - 1) * sizeof(T));
+                std::memcpy(data, data+1, count * sizeof(T));
             }
 
             void pop_back()

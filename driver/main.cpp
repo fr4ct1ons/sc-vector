@@ -54,8 +54,17 @@ int main(int argc, char const *argv[])
     std::cout << "Size: " << myVec.size() << std::endl;
     std::cout << "Capacity: " << myVec.capacity() << std::endl;
 
+    myVec[3] = 222222;
     std::cout << "***** BEFORE RESERVE *****" << std::endl;
     myVec.reserve(25);
+    std::cout << "Value at the back: " << myVec.back() << std::endl;
+    std::cout << "Value at the front: " << myVec.front() << std::endl;
+    std::cout << "Size: " << myVec.size() << std::endl;
+    std::cout << "Capacity: " << myVec.capacity() << std::endl;
+    std::cout << "Value at myVec[3]: " << myVec[3] << std::endl;
+
+    std::cout << "***** BEFORE SHRINK TO FIT *****" << std::endl;
+    myVec.shrink_to_fit();
     std::cout << "Value at the back: " << myVec.back() << std::endl;
     std::cout << "Value at the front: " << myVec.front() << std::endl;
     std::cout << "Size: " << myVec.size() << std::endl;
@@ -75,6 +84,7 @@ int main(int argc, char const *argv[])
     std::cout << "Size: " << myVec.size() << std::endl;
     std::cout << "Value at the back: " << myVec.back() << std::endl;
     std::cout << "Value at the front: " << myVec.front() << std::endl;
+
     myVec.assign(30, 88);
     std::cout << "Size: " << myVec.size() << std::endl;
     std::cout << "Capacity: " << myVec.capacity() << std::endl;
