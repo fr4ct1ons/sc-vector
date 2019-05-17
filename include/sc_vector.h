@@ -1,3 +1,6 @@
+//! \file
+
+
 #ifndef VECTOR_H
 #define VECTOR_H
 
@@ -7,23 +10,32 @@
 
 namespace sc
 {
+    //! Vector object, made as a replication of std::vector.
+    /*!
+      Replicates the vector in std::vector, with the same methods.
+    */
     template<typename T>
     class Vector
     {
         private:
-            T *data;
-            size_t count;
-            size_t capSize;
+            T *data; //!< Base array of the vector.
+            size_t count; //!< Amount of elements in the vector.
+            size_t capSize; //!< Number of T elements allocated for the vector.
         public:
-            //typename myType;
-        public:
+            //! Default constructor
+            /*! Default constructor. Will allocate the memory for the vector.
+                \param size - Number of elements to initially allocate for the vector. 
+            */
             Vector(size_t size=0)
             {
                 data = new T[size];
                 count = size;
                 capSize = size;
             }
-
+            //! Clone constructor
+            /*! Clone constructor, allocating the same memory as the passed vector and taking the same elements.
+                \param other - Vector to be cloned from. 
+            */
             Vector(Vector & other)
             {
                 count = other.size();
@@ -35,12 +47,16 @@ namespace sc
                 }
             }
 
+            //! Returns the number of elements in the vector.
             size_t size() { return count; }
+            //! Returns how much memory the vector is currently using.
             size_t capacity() { return capSize; }
+            //! Returns the element in the passed position of the vector without checking for bounds.
             T & operator[](size_t pos){ return data[pos]; }
+            //! Returns true if the vector has no elements in it, even if memory was allocated.
             bool empty() { return count > 0; }
 
-
+            //! Returns the element at the passed position, checking if it is bound within the allocated space
             T & at (size_t pos) 
             {
                 if(pos < count)
@@ -50,7 +66,7 @@ namespace sc
                     throw std::out_of_range("Value not inside vector range");
                 }
             }
-
+            //! Adds an element to the front of the vector (the [0] position), allocating more space, if necessary.
             void push_front( const T & value )
             {
                 count++;
@@ -69,7 +85,7 @@ namespace sc
 
                 data[0] = value;
             }
-
+            //! Adds an element to the back of the vector (the [size() - 1] position), allocating more space, if necessary.
             void push_back( const T & value )
             {
                 count++;
@@ -84,7 +100,11 @@ namespace sc
 
                 data[count - 1] = value;
             }
-
+            //! Makes the vector have n copies of x.
+            /*!
+                \param valCount - Number of copies.
+                \param value - Value to be assigned.
+            */
             void assign(size_t valCount, const T & value)
             {
                 count = valCount;
@@ -101,7 +121,10 @@ namespace sc
                     data[i] = value;
                 }
             }
-
+            //! Makes the vector have n spaces of memory. Does nothing if passed value is below or equal to the current capacity.
+            /*! 
+                \param newCap - New size of the vector.
+            */
             void reserve(size_t newCap )
             {
                 if(newCap <= capSize)
@@ -113,7 +136,7 @@ namespace sc
                 delete[] data;
                 data = buffer;
             }
-
+            //! Makes the vector have the allocated memory space equal to the number of elements.
             void shrink_to_fit()
             {
                 if(capSize == count)
@@ -125,33 +148,33 @@ namespace sc
                 delete[] data;
                 data = buffer;
             }
-
+            //! Removes the element at the front of the vector, without deallocating memory.
             void pop_front()
             {
                 count--;
                 std::memcpy(data, data+1, count * sizeof(T));
             }
-
+            //! Removes the element at the back of the vector, without deallocating memory.
             void pop_back()
             {
                 count--;
             }
-
+            //! Returns the element at the back of the vector (the [size() - 1] position).
             const T & back() const
             {
                 return data[count - 1];
             }
-
+            //! Returns the element at the front of the vector (the [0] position).
             const T & front() const
             {
                 return data[0];
             }
-
+            //! Makes the vector have 0 elements, without deallocating memory.
             void clear()
             {
                 count = 0;
             }
-
+            //! Returns true if the vectors are equal.
             bool operator==(Vector & rhs)
             {
                 if(count != rhs.size())
@@ -169,7 +192,7 @@ namespace sc
                 return true;
                 
             }
-
+            //! Returns true if the vectors are unequal.
             bool operator!=(Vector & rhs)
             {
                 if(count != rhs.size())
