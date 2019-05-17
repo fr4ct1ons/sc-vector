@@ -12,6 +12,12 @@ int main(int argc, char const *argv[])
     sc::Vector<int> copyVec(myVec);
     std::cout << "copyVec[3] Value: " << copyVec[3] << std::endl;
 
+    std::cout << "Are the vectors equal? " << (int) (copyVec == myVec) << std::endl;
+    std::cout << "Are the vectors unequal? " << (int) (copyVec != myVec) << std::endl;
+    copyVec[3] = 9;
+    std::cout << "Are the vectors equal? " << (int) (copyVec == myVec) << std::endl;
+    std::cout << "Are the vectors unequal? " << (int) (copyVec != myVec) << std::endl;
+
     try
     {
         std::cout << "INVALID value: " << myVec.at(99) << std::endl;

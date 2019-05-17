@@ -152,6 +152,42 @@ namespace sc
                 count = 0;
             }
 
+            bool operator==(Vector & rhs)
+            {
+                if(count != rhs.size())
+                    return false;
+                else
+                {
+                    for (size_t i = 0; i < count; i++)
+                    {
+                        if(data[i] != rhs.at(i))
+                            return false;
+                    }
+                    
+                }
+
+                return true;
+                
+            }
+
+            bool operator!=(Vector & rhs)
+            {
+                if(count != rhs.size())
+                    return true;
+                else
+                {
+                    for (size_t i = 0; i < count; i++)
+                    {
+                        if(data[i] != rhs.at(i))
+                            return true;
+                    }
+                    
+                }
+
+                return false;
+                
+            }
+
     };
 }
 
