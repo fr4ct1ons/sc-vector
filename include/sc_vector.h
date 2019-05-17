@@ -13,22 +13,22 @@ namespace sc
         private:
             T *data;
             size_t count;
+            size_t capSize;
         public:
             //typename myType;
         public:
-            Vector(size_t size=1)
+            Vector(size_t size=0)
             {
-                if(size <= 0)
-                    throw std::invalid_argument("Cannot initialize a vector with 0 or a negative amount of elements");
-                
                 data = new T[size];
                 count = size;
+                capSize = size;
             }
 
             Vector(Vector & other)
             {
                 count = other.size();
-                data = new T[count];
+                capSize = other.capacity();
+                data = new T[capSize];
                 for(size_t i = 0; i < count; i++)
                 {
                     data[i] = other[i];
@@ -36,6 +36,7 @@ namespace sc
             }
 
             size_t size() { return count; }
+            size_t capacity() { return capSize; }
             T & operator[](size_t pos){ return data[pos]; }
             bool empty() { return count > 0; }
 
@@ -53,39 +54,75 @@ namespace sc
             void push_front( const T & value )
             {
                 count++;
-                T *buffer = new T[count];
-                std::memcpy(buffer + 1, data, (count - 1) * sizeof(T));
-                delete[] data;
-                data = buffer;
+                if(count > capSize)
+                {
+                    capSize = count;
+                    T *buffer = new T[capSize];
+                    std::memcpy(buffer + 1, data, (count - 1) * sizeof(T));
+                    delete[] data;
+                    data = buffer;
+                }
+                else
+                {
+                    std::memcpy(data + 1, data, (count - 1) * sizeof(T));
+                }
+
                 data[0] = value;
             }
 
             void push_back( const T & value )
             {
                 count++;
-                T *buffer = new T[count];
+                if(count > capSize)
+                {
+                    capSize = count;
+                    T *buffer = new T[capSize];
+                    std::memcpy(buffer, data, (count - 1) * sizeof(T));
+                    delete[] data;
+                    data = buffer;
+                }
+
+                data[count - 1] = value;
+            }
+
+            void assign(size_t valCount, const T & value)
+            {
+                count = valCount;
+                if(count > capSize)
+                {
+                    capSize = count;
+                    T *buffer = new T[capSize];
+                    delete[] data;
+                    data = buffer;
+                }
+                
+                for (size_t i = 0; i < count; i++)
+                {
+                    data[i] = value;
+                }
+            }
+
+            void reserve(size_t newCap )
+            {
+                if(newCap <= capSize)
+                    return;
+                
+                capSize = newCap;
+                T *buffer = new T[capSize];
                 std::memcpy(buffer, data, (count - 1) * sizeof(T));
                 delete[] data;
                 data = buffer;
-                data[count - 1] = value;
             }
 
             void pop_front()
             {
                 count--;
-                T *buffer = new T[count];
-                std::memcpy(buffer, data+1, (count - 1) * sizeof(T));
-                delete[] data;
-                data = buffer;
+                std::memcpy(data, data+1, (count - 1) * sizeof(T));
             }
 
             void pop_back()
             {
                 count--;
-                T *buffer = new T[count];
-                std::memcpy(buffer, data, (count - 1) * sizeof(T));
-                delete[] data;
-                data = buffer;
             }
 
             const T & back() const
@@ -96,6 +133,11 @@ namespace sc
             const T & front() const
             {
                 return data[0];
+            }
+
+            void clear()
+            {
+                count = 0;
             }
 
     };
@@ -146,7 +188,7 @@ class vector {
 
         // [III] Capacity
         size_type size( void ) const;
-        size_type capacity( void ) const;
+        size_type capSize( void ) const;
         bool empty( void ) const;
 
         // [IV] Modifiers
@@ -188,7 +230,7 @@ class vector {
         size_type m_end;
         //!< Current list size (or index past-last valid element).
         size_type m_capacity;
-        //!< List’s storage capacity.
+        //!< List’s storage capSize.
         //std::unique_ptr<T[]> m_storage; //!< Data storage area for the dynamic array.
         T *m_storage; //!< Data storage area for the dynamic array.
  };

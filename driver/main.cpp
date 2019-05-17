@@ -4,15 +4,6 @@
 int main(int argc, char const *argv[])
 {
     sc::Vector<int> myVec(20);
-
-    try
-    {
-        sc::Vector<int> newVec(0);
-    }
-    catch(const std::exception& e)
-    {
-        std::cerr << e.what() << '\n';
-    }
     
     myVec[19] = 76;
     myVec[3] = 51;
@@ -45,11 +36,48 @@ int main(int argc, char const *argv[])
     std::cout << "Size: " << myVec.size() << std::endl;
     std::cout << "Value at the front: " << myVec[0] << std::endl;
 
+    myVec[19] = 56;
     myVec.pop_back();
     std::cout << "Size: " << myVec.size() << std::endl;
+    std::cout << "Value at the back: " << myVec.back() << std::endl;
+    std::cout << "Capacity: " << myVec.capacity() << std::endl;
 
     myVec[19] = 86;
     myVec[0] = 40;
+    std::cout << "Value at the back: " << myVec.back() << std::endl;
+    std::cout << "Value at the front: " << myVec.front() << std::endl;
+
+    myVec.push_back(88);
+    myVec.push_front(66);
+    std::cout << "Value at the back: " << myVec.back() << std::endl;
+    std::cout << "Value at the front: " << myVec.front() << std::endl;
+    std::cout << "Size: " << myVec.size() << std::endl;
+    std::cout << "Capacity: " << myVec.capacity() << std::endl;
+
+    std::cout << "***** BEFORE RESERVE *****" << std::endl;
+    myVec.reserve(25);
+    std::cout << "Value at the back: " << myVec.back() << std::endl;
+    std::cout << "Value at the front: " << myVec.front() << std::endl;
+    std::cout << "Size: " << myVec.size() << std::endl;
+    std::cout << "Capacity: " << myVec.capacity() << std::endl;
+    std::cout << "Value at myVec[3]: " << myVec[3] << std::endl;
+
+    myVec.clear();
+    myVec.push_front(1964);
+    std::cout << "Size: " << myVec.size() << std::endl;
+    std::cout << "Value at the front: " << myVec.front() << std::endl;
+
+    myVec.push_back(2019);
+    std::cout << "Size: " << myVec.size() << std::endl;
+    std::cout << "Value at the back: " << myVec.back() << std::endl;
+
+    myVec.assign(10, 44);
+    std::cout << "Size: " << myVec.size() << std::endl;
+    std::cout << "Value at the back: " << myVec.back() << std::endl;
+    std::cout << "Value at the front: " << myVec.front() << std::endl;
+    myVec.assign(30, 88);
+    std::cout << "Size: " << myVec.size() << std::endl;
+    std::cout << "Capacity: " << myVec.capacity() << std::endl;
     std::cout << "Value at the back: " << myVec.back() << std::endl;
     std::cout << "Value at the front: " << myVec.front() << std::endl;
 
