@@ -18,6 +18,11 @@ int main(int argc, char const *argv[])
     std::cout << "Are the vectors equal? " << (int) (copyVec == myVec) << std::endl;
     std::cout << "Are the vectors unequal? " << (int) (copyVec != myVec) << std::endl;
 
+    sc::Vector<int> assignmentVec = copyVec = myVec;
+    std::cout << "Value at assignmentVec[3]: " << assignmentVec[3] << std::endl;
+    std::cout << "Value at copyVec[3]: " << copyVec[3] << std::endl;
+    std::cout << "Value at myVec[3]: " << myVec[3] << std::endl;
+
     try
     {
         std::cout << "INVALID value: " << myVec.at(99) << std::endl;

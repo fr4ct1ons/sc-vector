@@ -46,6 +46,23 @@ namespace sc
                     data[i] = other[i];
                 }
             }
+            //! Asignment constructor
+            /*!
+                Assigns the data, size and capacity the same values as the passed vector.
+                \param other - Vector to be used in the assignment.
+            */
+            Vector & operator=( Vector & other)
+            {
+                count = other.size();
+                capSize = other.capacity();
+                data = new T[capSize];
+                for (size_t i = 0; i < count; i++)
+                {
+                    data[i] = other.at(i);
+                }
+                
+                return *this;
+            }
 
             //! Returns the number of elements in the vector.
             size_t size() { return count; }
