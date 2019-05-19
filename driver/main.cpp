@@ -23,8 +23,12 @@ int main(int argc, char const *argv[])
     std::cout << "Value at copyVec[3]: " << copyVec[3] << std::endl;
     std::cout << "Value at myVec[3]: " << myVec[3] << std::endl;
 
-    //sc::Vector<int> listVec = {1,2,3,1245};
-    //std::cout << "Value at listVec[3]: " << listVec[3] << std::endl;
+    sc::Vector<int> listVec({1,2,3,1245});
+    std::cout << "Value at listVec[3]: " << listVec[3] << std::endl;
+    
+    copyVec = listVec = {12345, 1234, 123, 12, 1};
+    std::cout << "Value at listVec[2]: " << listVec[2] << std::endl;
+    std::cout << "Value at copyVec[2]: " << copyVec[2] << std::endl;
 
     try
     {

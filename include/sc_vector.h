@@ -49,7 +49,7 @@ namespace sc
             }
             //! Asignment constructor
             /*!
-                Assigns the data, size and capacity the same values as the passed vector.
+                Assigns the data, size and capacity the same values as the passed vector. Returns the created vector, allowing for expressions like a = b = c.
                 \param other - Vector to be used in the assignment.
             */
             Vector & operator=( Vector & other)
@@ -64,21 +64,31 @@ namespace sc
                 
                 return *this;
             }
-
-            /*Vector & operator=(std::initializer_list<T> &ilist)
+            //! Initializer List constructor
+            /*!
+                Assigns the data, size and capacity the same values as the passed list.
+                \param ilist - Initializer List used in the constructor.
+            */
+            Vector(std::initializer_list<T> ilist)
             {
                 count = ilist.size();
                 capSize = ilist.size();
                 data = new T[capSize];
-                size_t newCount = 0;
-                for (auto &val : ilist)
-                {
-                    data[newCount] = val;
-                    count++; 
-                }
-                
-                
-            }*/
+                std::memcpy(data, ilist.begin(), count * sizeof(T));
+            }
+            //! Initializer List assignment constructor
+            /*!
+                Assigns the data, size and capacity the same values as the passed list. Returns the created vector, allowing expressions similar to a = b = {x, y, z}.
+                \param ilist - Initializer List used in the assignment.
+            */
+            Vector & operator=(std::initializer_list<T> ilist)
+            {
+                count = ilist.size();
+                capSize = ilist.size();
+                data = new T[capSize];
+                std::memcpy(data, ilist.begin(), count * sizeof(T));
+                return *this;
+            }
 
             //! Returns the number of elements in the vector.
             size_t size() { return count; }
