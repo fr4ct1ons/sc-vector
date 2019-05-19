@@ -8,6 +8,8 @@
 #include<stdexcept> 
 #include<cstring>
 #include<initializer_list>
+#include<iostream>
+#include<iterator>
 
 namespace sc
 {
@@ -33,6 +35,19 @@ namespace sc
                 count = size;
                 capSize = size;
             }
+            //! Default destructor
+            /*! Cleans up the memory used by the class.
+            
+            */
+            ~Vector()
+            {
+                delete[] data;
+                delete &count;
+                delete &capSize;
+                delete data;
+                std::cout << "Destructor called succesfully" << std::endl;
+            }
+
             //! Clone constructor
             /*! Clone constructor, allocating the same memory as the passed vector and taking the same elements.
                 \param other - Vector to be cloned from. 
@@ -46,6 +61,7 @@ namespace sc
                 {
                     data[i] = other[i];
                 }
+                delete[] &other;
             }
             //! Asignment constructor
             /*!
@@ -62,6 +78,7 @@ namespace sc
                     data[i] = other.at(i);
                 }
                 
+                delete[] &other;
                 return *this;
             }
             //! Initializer List constructor
@@ -75,6 +92,7 @@ namespace sc
                 capSize = ilist.size();
                 data = new T[capSize];
                 std::memcpy(data, ilist.begin(), count * sizeof(T));
+                delete[] &ilist;
             }
             //! Initializer List assignment constructor
             /*!
@@ -203,12 +221,12 @@ namespace sc
                 count--;
             }
             //! Returns the element at the back of the vector (the [size() - 1] position).
-            const T & back() const
+            T & back() const
             {
                 return data[count - 1];
             }
             //! Returns the element at the front of the vector (the [0] position).
-            const T & front() const
+            T & front() const
             {
                 return data[0];
             }
@@ -251,8 +269,24 @@ namespace sc
                 }
 
                 return false;
-                
             }
+
+            /*std::iterator begin(void)
+            {
+                return &data[0];
+            }*/
+
+            /*std::ostream & operator<<(Vector &vec)
+            {
+                std::ostream os;
+                os << "{ ";
+                for (size_t i = 0; i < vec.count - 1; i++)
+                {
+                    os << vec.data[i] << ", ";
+                }
+                os << vec.data[count - 1] << " }";
+                return os;
+            }*/
 
     };
 }

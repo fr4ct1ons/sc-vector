@@ -18,6 +18,13 @@ int main(int argc, char const *argv[])
     std::cout << "Are the vectors equal? " << (int) (copyVec == myVec) << std::endl;
     std::cout << "Are the vectors unequal? " << (int) (copyVec != myVec) << std::endl;
 
+    //std::cout << myVec << std::endl;
+
+    if(copyVec == myVec)
+    {
+        std::cout << "LOOOOOOOOOOLLLLLLLLL" << std::endl;
+    }
+
     sc::Vector<int> assignmentVec = copyVec = myVec;
     std::cout << "Value at assignmentVec[3]: " << assignmentVec[3] << std::endl;
     std::cout << "Value at copyVec[3]: " << copyVec[3] << std::endl;
@@ -29,6 +36,8 @@ int main(int argc, char const *argv[])
     copyVec = listVec = {12345, 1234, 123, 12, 1};
     std::cout << "Value at listVec[2]: " << listVec[2] << std::endl;
     std::cout << "Value at copyVec[2]: " << copyVec[2] << std::endl;
+    
+    //std::cout << myVec << std::endl;
 
     try
     {
@@ -108,6 +117,8 @@ int main(int argc, char const *argv[])
     std::cout << "Capacity: " << myVec.capacity() << std::endl;
     std::cout << "Value at the back: " << myVec.back() << std::endl;
     std::cout << "Value at the front: " << myVec.front() << std::endl;
+
+    //delete &myVec;
 
     return 0;
 }
