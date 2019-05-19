@@ -23,6 +23,9 @@ int main(int argc, char const *argv[])
     std::cout << "Value at copyVec[3]: " << copyVec[3] << std::endl;
     std::cout << "Value at myVec[3]: " << myVec[3] << std::endl;
 
+    //sc::Vector<int> listVec = {1,2,3,1245};
+    //std::cout << "Value at listVec[3]: " << listVec[3] << std::endl;
+
     try
     {
         std::cout << "INVALID value: " << myVec.at(99) << std::endl;

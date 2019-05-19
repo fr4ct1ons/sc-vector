@@ -7,6 +7,7 @@
 #include<cstdlib>
 #include<stdexcept> 
 #include<cstring>
+#include<initializer_list>
 
 namespace sc
 {
@@ -63,6 +64,21 @@ namespace sc
                 
                 return *this;
             }
+
+            /*Vector & operator=(std::initializer_list<T> &ilist)
+            {
+                count = ilist.size();
+                capSize = ilist.size();
+                data = new T[capSize];
+                size_t newCount = 0;
+                for (auto &val : ilist)
+                {
+                    data[newCount] = val;
+                    count++; 
+                }
+                
+                
+            }*/
 
             //! Returns the number of elements in the vector.
             size_t size() { return count; }
