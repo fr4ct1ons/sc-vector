@@ -3,6 +3,9 @@
 {\ttfamily \#include $<$cstdlib$>$}\newline
 {\ttfamily \#include $<$stdexcept$>$}\newline
 {\ttfamily \#include $<$cstring$>$}\newline
+{\ttfamily \#include $<$initializer\+\_\+list$>$}\newline
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$iterator$>$}\newline
 Include dependency graph for sc\+\_\+vector.\+h\+:
 % FIG 0
 \subsection*{Classes}

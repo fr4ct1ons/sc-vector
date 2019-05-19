@@ -14,8 +14,16 @@
 \item 
 \hyperlink{classsc_1_1Vector_a4832f9a5721078c4d2c89370f0fd96d0}{Vector} (size\+\_\+t \hyperlink{classsc_1_1Vector_a2ccab0421fad94601e6bd5e344aa3340}{size}=0)
 \begin{DoxyCompactList}\small\item\em Default constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsc_1_1Vector_ad02ec02278095c30e478603bc26eb225}{$\sim$\+Vector} ()
+\begin{DoxyCompactList}\small\item\em Default destructor. \end{DoxyCompactList}\item 
 \hyperlink{classsc_1_1Vector_a2b482471a80d2570089ad1cd68aae03e}{Vector} (\hyperlink{classsc_1_1Vector}{Vector} \&other)
 \begin{DoxyCompactList}\small\item\em Clone constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsc_1_1Vector}{Vector} \& \hyperlink{classsc_1_1Vector_ac9e52ae9626207b75d6145d64a23edd6}{operator=} (\hyperlink{classsc_1_1Vector}{Vector} \&other)
+\begin{DoxyCompactList}\small\item\em Asignment constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsc_1_1Vector_aa2f49c9f44fcea07c3b9ce2f7867f2fb}{Vector} (std\+::initializer\+\_\+list$<$ T $>$ ilist)
+\begin{DoxyCompactList}\small\item\em Initializer List constructor. \end{DoxyCompactList}\item 
+\hyperlink{classsc_1_1Vector}{Vector} \& \hyperlink{classsc_1_1Vector_a4c1f64a652e6febd6e06e2bf24f83f8d}{operator=} (std\+::initializer\+\_\+list$<$ T $>$ ilist)
+\begin{DoxyCompactList}\small\item\em Initializer List assignment constructor. \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classsc_1_1Vector_a2ccab0421fad94601e6bd5e344aa3340}\label{classsc_1_1Vector_a2ccab0421fad94601e6bd5e344aa3340}} 
 size\+\_\+t \hyperlink{classsc_1_1Vector_a2ccab0421fad94601e6bd5e344aa3340}{size} ()
 \begin{DoxyCompactList}\small\item\em Returns the number of elements in the vector. \end{DoxyCompactList}\item 
@@ -50,11 +58,11 @@ void \hyperlink{classsc_1_1Vector_a51b1b215ab5bfb9b6fdfc7104838efec}{pop\+\_\+fr
 \mbox{\Hypertarget{classsc_1_1Vector_ab95364b7ec9fe400a6f9aeb00ce52487}\label{classsc_1_1Vector_ab95364b7ec9fe400a6f9aeb00ce52487}} 
 void \hyperlink{classsc_1_1Vector_ab95364b7ec9fe400a6f9aeb00ce52487}{pop\+\_\+back} ()
 \begin{DoxyCompactList}\small\item\em Removes the element at the back of the vector, without deallocating memory. \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsc_1_1Vector_a94c8f2da6a9eaac7e48d3b4374621e88}\label{classsc_1_1Vector_a94c8f2da6a9eaac7e48d3b4374621e88}} 
-const T \& \hyperlink{classsc_1_1Vector_a94c8f2da6a9eaac7e48d3b4374621e88}{back} () const
+\mbox{\Hypertarget{classsc_1_1Vector_a5f22f07525e27b2233d590fbc2f3fe1f}\label{classsc_1_1Vector_a5f22f07525e27b2233d590fbc2f3fe1f}} 
+T \& \hyperlink{classsc_1_1Vector_a5f22f07525e27b2233d590fbc2f3fe1f}{back} () const
 \begin{DoxyCompactList}\small\item\em Returns the element at the back of the vector (the \mbox{[}\hyperlink{classsc_1_1Vector_a2ccab0421fad94601e6bd5e344aa3340}{size()} -\/ 1\mbox{]} position). \end{DoxyCompactList}\item 
-\mbox{\Hypertarget{classsc_1_1Vector_a6bcf8585249bdcad59a45709c817dd18}\label{classsc_1_1Vector_a6bcf8585249bdcad59a45709c817dd18}} 
-const T \& \hyperlink{classsc_1_1Vector_a6bcf8585249bdcad59a45709c817dd18}{front} () const
+\mbox{\Hypertarget{classsc_1_1Vector_a454309a6f216423c08fd24e7e1004849}\label{classsc_1_1Vector_a454309a6f216423c08fd24e7e1004849}} 
+T \& \hyperlink{classsc_1_1Vector_a454309a6f216423c08fd24e7e1004849}{front} () const
 \begin{DoxyCompactList}\small\item\em Returns the element at the front of the vector (the \mbox{[}0\mbox{]} position). \end{DoxyCompactList}\item 
 \mbox{\Hypertarget{classsc_1_1Vector_a312f07c5f7a6fdf16c2f88d24ed2a95f}\label{classsc_1_1Vector_a312f07c5f7a6fdf16c2f88d24ed2a95f}} 
 void \hyperlink{classsc_1_1Vector_a312f07c5f7a6fdf16c2f88d24ed2a95f}{clear} ()
@@ -79,7 +87,7 @@ Replicates the vector in std\+::vector, with the same methods.
 \mbox{\Hypertarget{classsc_1_1Vector_a4832f9a5721078c4d2c89370f0fd96d0}\label{classsc_1_1Vector_a4832f9a5721078c4d2c89370f0fd96d0}} 
 \index{sc\+::\+Vector@{sc\+::\+Vector}!Vector@{Vector}}
 \index{Vector@{Vector}!sc\+::\+Vector@{sc\+::\+Vector}}
-\subsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+\subsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 \hyperlink{classsc_1_1Vector}{sc\+::\+Vector}$<$ T $>$\+::\hyperlink{classsc_1_1Vector}{Vector} (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{size = {\ttfamily 0} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -92,10 +100,21 @@ Default constructor. Will allocate the memory for the vector.
 {\em size} & -\/ Number of elements to initially allocate for the vector. \\
 \hline
 \end{DoxyParams}
-\mbox{\Hypertarget{classsc_1_1Vector_a2b482471a80d2570089ad1cd68aae03e}\label{classsc_1_1Vector_a2b482471a80d2570089ad1cd68aae03e}} 
+\mbox{\Hypertarget{classsc_1_1Vector_ad02ec02278095c30e478603bc26eb225}\label{classsc_1_1Vector_ad02ec02278095c30e478603bc26eb225}} 
+\index{sc\+::\+Vector@{sc\+::\+Vector}!````~Vector@{$\sim$\+Vector}}
+\index{````~Vector@{$\sim$\+Vector}!sc\+::\+Vector@{sc\+::\+Vector}}
+\subsubsection{\texorpdfstring{$\sim$\+Vector()}{~Vector()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classsc_1_1Vector}{sc\+::\+Vector}$<$ T $>$\+::$\sim$\hyperlink{classsc_1_1Vector}{Vector} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Default destructor. 
+
+Cleans up the memory used by the class. \mbox{\Hypertarget{classsc_1_1Vector_a2b482471a80d2570089ad1cd68aae03e}\label{classsc_1_1Vector_a2b482471a80d2570089ad1cd68aae03e}} 
 \index{sc\+::\+Vector@{sc\+::\+Vector}!Vector@{Vector}}
 \index{Vector@{Vector}!sc\+::\+Vector@{sc\+::\+Vector}}
-\subsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+\subsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
 {\footnotesize\ttfamily template$<$typename T $>$ \\
 \hyperlink{classsc_1_1Vector}{sc\+::\+Vector}$<$ T $>$\+::\hyperlink{classsc_1_1Vector}{Vector} (\begin{DoxyParamCaption}\item[{\hyperlink{classsc_1_1Vector}{Vector}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
 
@@ -106,6 +125,22 @@ Clone constructor.
 Clone constructor, allocating the same memory as the passed vector and taking the same elements. 
 \begin{DoxyParams}{Parameters}
 {\em other} & -\/ \hyperlink{classsc_1_1Vector}{Vector} to be cloned from. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsc_1_1Vector_aa2f49c9f44fcea07c3b9ce2f7867f2fb}\label{classsc_1_1Vector_aa2f49c9f44fcea07c3b9ce2f7867f2fb}} 
+\index{sc\+::\+Vector@{sc\+::\+Vector}!Vector@{Vector}}
+\index{Vector@{Vector}!sc\+::\+Vector@{sc\+::\+Vector}}
+\subsubsection{\texorpdfstring{Vector()}{Vector()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classsc_1_1Vector}{sc\+::\+Vector}$<$ T $>$\+::\hyperlink{classsc_1_1Vector}{Vector} (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ T $>$}]{ilist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializer List constructor. 
+
+Assigns the data, size and capacity the same values as the passed list. 
+\begin{DoxyParams}{Parameters}
+{\em ilist} & -\/ Initializer List used in the constructor. \\
 \hline
 \end{DoxyParams}
 
@@ -127,6 +162,38 @@ Makes the vector have n copies of x.
 {\em val\+Count} & -\/ Number of copies. \\
 \hline
 {\em value} & -\/ Value to be assigned. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsc_1_1Vector_ac9e52ae9626207b75d6145d64a23edd6}\label{classsc_1_1Vector_ac9e52ae9626207b75d6145d64a23edd6}} 
+\index{sc\+::\+Vector@{sc\+::\+Vector}!operator=@{operator=}}
+\index{operator=@{operator=}!sc\+::\+Vector@{sc\+::\+Vector}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classsc_1_1Vector}{Vector}\& \hyperlink{classsc_1_1Vector}{sc\+::\+Vector}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{\hyperlink{classsc_1_1Vector}{Vector}$<$ T $>$ \&}]{other }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Asignment constructor. 
+
+Assigns the data, size and capacity the same values as the passed vector. Returns the created vector, allowing for expressions like a = b = c. 
+\begin{DoxyParams}{Parameters}
+{\em other} & -\/ \hyperlink{classsc_1_1Vector}{Vector} to be used in the assignment. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classsc_1_1Vector_a4c1f64a652e6febd6e06e2bf24f83f8d}\label{classsc_1_1Vector_a4c1f64a652e6febd6e06e2bf24f83f8d}} 
+\index{sc\+::\+Vector@{sc\+::\+Vector}!operator=@{operator=}}
+\index{operator=@{operator=}!sc\+::\+Vector@{sc\+::\+Vector}}
+\subsubsection{\texorpdfstring{operator=()}{operator=()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+\hyperlink{classsc_1_1Vector}{Vector}\& \hyperlink{classsc_1_1Vector}{sc\+::\+Vector}$<$ T $>$\+::operator= (\begin{DoxyParamCaption}\item[{std\+::initializer\+\_\+list$<$ T $>$}]{ilist }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Initializer List assignment constructor. 
+
+Assigns the data, size and capacity the same values as the passed list. Returns the created vector, allowing expressions similar to a = b = \{x, y, z\}. 
+\begin{DoxyParams}{Parameters}
+{\em ilist} & -\/ Initializer List used in the assignment. \\
 \hline
 \end{DoxyParams}
 \mbox{\Hypertarget{classsc_1_1Vector_a16435ab7524542a2197d202f45dc80d8}\label{classsc_1_1Vector_a16435ab7524542a2197d202f45dc80d8}} 
