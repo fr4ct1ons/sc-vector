@@ -42,10 +42,10 @@ namespace sc
             ~Vector()
             {
                 delete[] data;
-                delete &count;
-                delete &capSize;
-                delete data;
-                std::cout << "Destructor called succesfully" << std::endl;
+                //delete &count;
+                //delete &capSize;
+                //delete data;
+                //std::cout << "Destructor called succesfully" << std::endl;
             }
 
             //! Clone constructor
@@ -59,9 +59,10 @@ namespace sc
                 data = new T[capSize];
                 for(size_t i = 0; i < count; i++)
                 {
+                    //std::cout << other[i] << std::endl;
                     data[i] = other[i];
                 }
-                delete[] &other;
+                //delete[] &other;
             }
             //! Asignment constructor
             /*!
@@ -78,7 +79,7 @@ namespace sc
                     data[i] = other.at(i);
                 }
                 
-                delete[] &other;
+                //delete[] &other;
                 return *this;
             }
             //! Initializer List constructor
@@ -92,7 +93,7 @@ namespace sc
                 capSize = ilist.size();
                 data = new T[capSize];
                 std::memcpy(data, ilist.begin(), count * sizeof(T));
-                delete[] &ilist;
+                //delete[] &ilist;
             }
             //! Initializer List assignment constructor
             /*!

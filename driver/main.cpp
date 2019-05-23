@@ -118,7 +118,7 @@ int main(int argc, char const *argv[])
     std::cout << "Value at the back: " << myVec.back() << std::endl;
     std::cout << "Value at the front: " << myVec.front() << std::endl;
 
-    //delete &myVec;
+    std::cout << "Finished test program." << std::endl;
 
     return 0;
 }
