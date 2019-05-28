@@ -3,7 +3,7 @@ College project, for replicating the std::vector, from C++'s Standard Template L
 
 Subject: Basic Data Structures I  
 Teacher: Selan Rodrigues Santos  
-Author: Gabriel Paes Landim de Lucena
+Author: Gabriel Lucena (FR4CT1ONS)
 
 ## About
 This project consists of a recreation of STL's vector data type.  It includes most methods included in the original vector data type.  
